@@ -37,9 +37,8 @@ if(isset($data['callback_query']))
                 ]
             ]
         ]
-        //'message_id' => $data['callback_query']['message']['message_id']
     ];
-     $res = sendTelegram('sendMessage', $send_data);
+    $res = sendTelegram('sendMessage', $send_data);
 }
 
 else {
@@ -48,7 +47,6 @@ else {
         case 'Заново':
             $send_data = [
                 'text' => 'Здравствуйте, как Вас зовут?'
-
             ];
             break;
         case 'Гарри Поттер':
@@ -66,8 +64,11 @@ else {
             $points = mysqli_fetch_array(mysqli_query($conn, $sql))['points'];
             if ($arr == null)
             {
-                $send_data = [
-                    'text' => 'Вы прошли тест. Ваш результат: ' . $points,
+
+                $send_data =
+                    [
+
+                    'text' => 'Вы прошли тест. Ваш результат: ' . $points . "\n",
                     'reply_markup' => [
                         'resize_keyboard' => true,
                         'one_time_keyboard' => true,
